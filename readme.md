@@ -77,7 +77,7 @@ The `OP_DEFINE` opcode is defined at codepoint `0x89` (`137`) with the following
 1. If the stack is empty (no `function_identifier`), error. If the length of the popped item is outside of the range `0` to `7` (inclusive), error. See [Rationale: Use of Stack-Based Parameters](./rationale.md#use-of-stack-based-parameters) and [Rationale: Format of Function Identifiers](./rationale.md#format-of-function-identifiers).
 2. if the stack is empty (no `function_body`), error. Note that any stack item is a valid function body (including empty stack items); implementations must not attempt to parse the function body until invoked by `OP_INVOKE`. See [Rationale: Deferred Parsing of Function Bodies](./rationale.md#deferred-parsing-of-function-bodies).
 3. See [Rationale: Immutability of Function Bodies](./rationale.md#immutability-of-function-bodies). Note also that function identifiers/table keys may be defined in any order. See [Rationale: Support for Skipping Function Identifiers](./rationale.md#support-for-skipping-function-identifiers).
-4. Note that the [Operation Cost](http://github.com/bitjson/bch-vm-limits#operation-cost-limit) of `OP_DEFINE` is equal to the [Base Instruction Cost](https://github.com/bitjson/bch-vm-limits?#base-instruction-cost).
+4. Note that the [Operation Cost](http://github.com/bitjson/bch-vm-limits#operation-cost-limit) of `OP_DEFINE` is equal to the [Base Instruction Cost](https://github.com/bitjson/bch-vm-limits?#base-instruction-cost) plus the [Stack-Pushed Bytes](https://github.com/bitjson/bch-vm-limits?#measurement-of-stack-pushed-bytes) cost for the function body.
 
 </small>
 
